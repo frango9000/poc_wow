@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  node-script:
+    build:
+      context: .  # Directory containing the Dockerfile
+    volumes:
+      - C:/temp/output:/app/output  # Mount volume for persistent output
+    restart: unless-stopped
+    command: cron -f  # Start cron daemon to execute the script every hour

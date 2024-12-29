@@ -1,0 +1,19 @@
+{
+  "name": "poc_wow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npx playwright install-deps && npx playwright install chromium",
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.49.1",
+    "prettier": "^3.4.2"
+  }
+}
