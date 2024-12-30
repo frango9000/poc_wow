@@ -92,7 +92,7 @@ function getPreviousData(outputFile) {
 function getNewData(previousData, currentData) {
     const newData = [];
     for (const entry of currentData) {
-        if (previousData.length && previousData[0].character.name === entry.character.name && previousData[0].date === entry.date) {
+        if (previousData.find((prev) => prev.character.name === entry.character.name && prev.date === entry.date)) {
             break;
         }
         newData.push(entry);
