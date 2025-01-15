@@ -121,6 +121,16 @@ async function sendDiscordWebhook(data) {
                 title: entry.character.name,
                 description: `${entry.character.name}: ${entry.guild.name} busca guild. (${entry.date})`,
                 color: 16711680,
+                fields:[
+                    {
+                        name: 'WoWProgress',
+                        url: `https://www.wowprogress.com/character/eu/${entry.character.realm}/${entry.character.name}`,
+                    },
+                    {
+                        name: 'WarcraftLogs',
+                        url: `https://www.warcraftlogs.com/character/eu/${entry.character.realm}/${entry.character.name}`,
+                    }
+                ]
             })),
         ],
     };
