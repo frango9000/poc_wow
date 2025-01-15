@@ -124,11 +124,13 @@ async function sendDiscordWebhook(data) {
                 fields:[
                     {
                         name: 'WoWProgress',
-                        url: `https://www.wowprogress.com/character/eu/${entry.character.realm}/${entry.character.name}`,
+                        value: `[Link](https://www.wowprogress.com/character/eu/${entry.character.realm}/${entry.character.name})`,
+                        inline: true,
                     },
                     {
                         name: 'WarcraftLogs',
-                        url: `https://www.warcraftlogs.com/character/eu/${entry.character.realm}/${entry.character.name}`,
+                        value: `[Link](https://www.warcraftlogs.com/character/eu/${entry.character.realm}/${entry.character.name})`,
+                        inline: true,
                     }
                 ]
             })),
