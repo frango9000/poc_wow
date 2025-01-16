@@ -61,6 +61,7 @@ async function fetchRatingTable(url, selector) {
                 },
                 realm: {
                     name: realmLink.text().trim(),
+                    nameFormated: realmLink.text().trim().replace('\'', '-'),
                     url: realmLink.attr('href') || null,
                 },
                 date: dateSpan.attr('aria-label') || null,
@@ -124,7 +125,7 @@ async function sendDiscordWebhook(data) {
                 fields:[
                     {
                         name: 'WoWProgress',
-                        value: `[Link](https://www.wowprogress.com/character/eu/${entry.realm.name}/${entry.character.name})`,
+                        value: `[Link](https://www.wowprogress.com/character/eu/${entry.realm.nameFormated}/${entry.character.name})`,
                         inline: true,
                     },
                     {
