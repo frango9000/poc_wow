@@ -60,8 +60,8 @@ async function fetchRatingTable(url, selector) {
                     url: guildLink.attr('href') || null,
                 },
                 realm: {
-                    name: realmLink.text().trim(),
-                    nameFormated: realmLink.text().trim().replace('\'', '-'),
+                    name: realmLink.text().trim().replace(' ', '-'),
+                    nameFormated: realmLink.text().trim().replace('\'', '-').replace(' ', '-'),
                     url: realmLink.attr('href') || null,
                 },
                 date: dateSpan.attr('aria-label') || null,
