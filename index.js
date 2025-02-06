@@ -60,7 +60,8 @@ async function fetchRatingTable(url, selector) {
                     url: guildLink.attr('href') || null,
                 },
                 realm: {
-                    name: realmLink.text().trim(),
+                    name: realmLink.text().trim().replace(' ', '-'),
+                    nameFormated: realmLink.text().trim().replace('\'', '-').replace(' ', '-'),
                     url: realmLink.attr('href') || null,
                 },
                 date: dateSpan.attr('aria-label') || null,
@@ -121,6 +122,18 @@ async function sendDiscordWebhook(data) {
                 title: entry.character.name,
                 description: `${entry.character.name}: ${entry.guild.name} busca guild. (${entry.date})`,
                 color: 16711680,
+                fields:[
+                    {
+                        name: 'WoWProgress',
+                        value: `[Link](https://www.wowprogress.com/character/eu/${entry.realm.nameFormated}/${entry.character.name})`,
+                        inline: true,
+                    },
+                    {
+                        name: 'WarcraftLogs',
+                        value: `[Link](https://www.warcraftlogs.com/character/eu/${entry.realm.name}/${entry.character.name})`,
+                        inline: true,
+                    }
+                ]
             })),
         ],
     };
